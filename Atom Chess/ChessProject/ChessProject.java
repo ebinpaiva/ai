@@ -23,8 +23,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 
 
     public ChessProject(){
-      Boolean whitemove = true;
-      Boolean possible = false;
+      Boolean whitemove;
+      Boolean possible;
         Dimension boardSize = new Dimension(600, 600);
 
         //  Use a Layered Pane for this application
@@ -203,8 +203,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		String pieceName = tmp.substring(0, (tmp.length()-4));
 		Boolean validMove = false;
 
-    Boolean WhiteMove = true;
-
+    Boolean whitemove = true;
 
     int landingX = (e.getX()/75);
 		int landingY  = (e.getY()/75);
@@ -787,6 +786,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	    		chessPiece.setVisible(true);
 			}
 		}
+
+
     }
 
     public void mouseClicked(MouseEvent e) {
