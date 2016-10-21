@@ -6,6 +6,7 @@ import javax.swing.*;
 /*
 	This class can be used as a starting point for creating your Chess game project. The only piece that
 	has been coded is a white pawn...a lot done, more to do!
+  x13112635_Ebin
 */
 
 public class ChessProject extends JFrame implements MouseListener, MouseMotionListener {
@@ -20,11 +21,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	int initialY;
 	JPanel panels;
 	JLabel pieces;
+  Boolean movement;
 
 
     public ChessProject(){
-      Boolean whitemove;
-      Boolean possible;
+      movement = true;
         Dimension boardSize = new Dimension(600, 600);
 
         //  Use a Layered Pane for this application
@@ -203,7 +204,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		String pieceName = tmp.substring(0, (tmp.length()-4));
 		Boolean validMove = false;
 
-    Boolean whitemove = true;
+    Boolean possible = false;
+
 
     int landingX = (e.getX()/75);
 		int landingY  = (e.getY()/75);
@@ -227,7 +229,41 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			square forward and one square over, i.e. in a diagonal direction from the Pawns original position.
 			If a Pawn makes it to the top of the other side, the Pawn can turn into any other piece, for
 			demonstration purposes the Pawn here turns into a Queen.
+      x13112635_Ebin
 		*/
+
+/*
+    if(whitefirst){
+      if(pieceName.contains("white")){
+
+        possible = true;
+      }
+    }
+    else {
+
+        possible = false;
+      }
+
+
+    if(possible){
+      System.out.println("White moves first");
+    }
+
+    */
+    if(movement){
+      if(pieceName.contains("White")){
+    possible = true;
+    }
+  }
+   else{
+     if(pieceName.contains("Black")){
+       possible = true;
+     }
+   }
+  if(possible){
+
+
+
     if(pieceName.contains("Bishop")){
 
             Boolean inTheWay = false;
@@ -723,6 +759,34 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}
 			}
 		}
+
+}
+
+
+
+
+    //End of codes for moving pieces on the board
+
+  if(validMove){
+
+          if(pieceName.contains("White")){
+            movement = false;
+            System.out.println("hi");
+          }
+          else {
+
+            movement = true;
+            System.out.println("bye");
+
+
+          }
+
+      }
+
+
+
+
+
 		if(!validMove){
 			int location=0;
 			if(startY ==0){
@@ -754,6 +818,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}
 
                     }
+
+
 
 
 
